@@ -9,7 +9,7 @@ permissions:
 env:
   # For AZURE_WEBAPP_NAME enter just the name, not the full URL.
   RESOURCE_GROUP: az2006-rg
-  LOAD_TEST_RESOURCE: az2006loadtest
+  LOAD_TEST_RESOURCE: az2006loadtest-746f9126
   AZURE_WEBAPP_NAME: az2006app52764
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
       # Run the load test
       - name: Azure Load Testing
         # Pinning the action to a specific commit SHA to avoid breaking changes in the future.
-        uses: azure/load-testing@5c5d948af73990aa1c0732e255897d1b1b4c0e7b # v1.2.5
+        uses: azure/load-testing@a7864d41b4947bb247fb81fc4cc7020260d8c145 # v1.2.5
         with:
           loadTestConfigFile: 'config.yaml'
           loadTestResource: ${{ env.LOAD_TEST_RESOURCE}}
